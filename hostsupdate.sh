@@ -9,6 +9,12 @@ sed -i "/down.sandai.net/d" 6666
 sed -i "/jf365.boc.cn/d" 6666
 sed -i "/as.boc.cn/d" 6666
 sed -i "/fex.bdstatic.com/d" 6666
-sed -i "/t.uc.cn/d" 6666
+sed -i "/paypal/d" 6666
+sed -i "/js.braintreegateway.com/d" 6666
+sed -i "/jssdkcdns.mparticle.com/d" 6666
+sed -i "/jssdkcdn.mparticle.com/d" 6666 
+sed -i "/gm.mmstat.com/d" 6666 
+sed -i "/log.mmstat.com/d" 6666 
+sed -i "/ws.mmstat.com/d" 6666 
 cat 6666|sort|sed -e '/host/d'|awk '!a[$0]++'|awk '{print "0.0.0.0 " $0}' > hosts_AD
 rm 1111 2222 3333 4444 5555 6666
