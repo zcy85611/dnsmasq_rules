@@ -19,5 +19,7 @@ sed -i "/ws.mmstat.com/d" 6666
 sed -i "/asearch.alicdn.com/d" 6666
 sed -i "/wgo.mmstat.com/d" 6666
 sed -i "/t.uc.cn/d" 6666
+sed -i "/oth.eve.mdt.qq.com/d" 6666
+sed -i "/android.bugly.qq.com/d" 6666
 cat 6666|sort|sed -e '/host/d'|awk '!a[$0]++'|awk '{print "0.0.0.0 " $0}' > hosts_AD
 rm 1111 2222 3333 4444 5555 6666
