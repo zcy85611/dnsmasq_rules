@@ -192,13 +192,7 @@ get_args(){
         if [ -z $IPSET_NAME ]; then
             WITH_IPSET=0
         else
-            IPSET_TEST=$(echo $IPSET_NAME | grep -E '^\w+(,\w+)*$')
-            if [ "$IPSET_TEST" != "$IPSET_NAME" ]; then
-                _red 'Error: Please enter a valid IP set name.\n'
-                exit 1
-            else
-                WITH_IPSET=1
-            fi
+            WITH_IPSET=1
         fi
     fi
 
@@ -284,7 +278,7 @@ process(){
         if [ $WITH_IPSET -eq 1 ]; then
             _green 'Ipset rules included.'
             sort -u $DOMAIN_FILE | $SED_ERES 's#(.+)#server=/\1/'$DNS_IP'\#'$DNS_PORT'\
-ipset=/\1/'$IPSET_NAME'#g' > $CONF_TMP_FILE
+nftset=/\1/'$IPSET_NAME'#g' > $CONF_TMP_FILE
         else
             _green 'Ipset rules not included.'
             sort -u $DOMAIN_FILE | $SED_ERES 's#(.+)#server=/\1/'$DNS_IP'\#'$DNS_PORT'#g' > $CONF_TMP_FILE
